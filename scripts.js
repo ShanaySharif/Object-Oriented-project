@@ -1,24 +1,35 @@
-//Business logic 
-// function Friend(firstName, lastName, yearsknown){
+//Business logic for Pizza
 
-function Pizza (pizzaTopping,size, _additionalTopping) {
-    this.pizzaTopping = pizzaTopping;
+function Pizza (toppings,size, sauce) {
+    this.toppings = toppings;
     this.size = size;
-    this.additionalTopping = _additionalTopping 
+    this.sauce = sauce;
 }
-
 Pizza.prototype.getPizzaDetails = function() {
-    return this.pizzaTopping + " " + this.size + " " + this.additionalTopping
-};
+    return this.toppings.join(", ") + " " + this.size + " with " + this.sauce + " sauce";
+  }
 
-const myPizza = new Pizza ("pinapple", "olives", "jalapeno");
+const myPizza = new Pizza (["cheese","pinapple", "olives", "jalapeno"], "large", "tomato");
 const pizzaDetails = myPizza.getPizzaDetails();
+
+console.log(pizzaDetails);
+
+function displayPizzaDetails(event){
+
+
+
+//Pizza sizes 
+
+
+
+
+
 
 
  // Prototype method to calculate the cost of the pizza
 
  Pizza.prototype.calculateCost = function() {
-    // Define the cost based on the size (you can adjust these values)
+    // Define the cost based on the size 
     let sizeCost = {
       small: 8,
       medium: 10,
@@ -29,8 +40,10 @@ const pizzaDetails = myPizza.getPizzaDetails();
 // console.log(pizzaDetails);
 
 
-//displaying pizza details
 
 //UI Logic 
+
+
+
 
 

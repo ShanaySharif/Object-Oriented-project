@@ -26,9 +26,9 @@ Test: "It should return a Pizza object with three properties for toppings "
 code: const myPizza = new Pizza ("pinapple", "olives", "jalapeno");
 Expected Output: 'pinapple olives jalapeno'
 
-Test: 
+Test: "it should return the pizza 
 code:  
-Expected Output: 
+Expected Output: "cheese, pineapple, olives, jalapeno large with tomato sauce"
 
 
 ### Known Bugs
