@@ -23,12 +23,21 @@ in Visual Studio Code on the bottom right hand side, run the application and it 
  Describe Pizza()
 
 Test: "It should return a Pizza object with three properties for toppings "
-code: const myPizza = new Pizza ("pinapple", "olives", "jalapeno");
-Expected Output: 'pinapple olives jalapeno'
+code: const myPizza = new Pizza (["pineapple", "olives", "jalapeno"], "large");
+code
+Expected Output: 'pineapple olives jalapeno'
 
-Test: "it should return the pizza 
-code:  
+Test: "it should return the pizza price
+code: const myPizza = new Pizza (["pineapple", "olives", "jalapeno"], "large");
+code: getPrice(myPizza);
 Expected Output: "cheese, pineapple, olives, jalapeno large with tomato sauce"
+
+Test:
+code:
+Expected Output:
+
+
+
 
 
 ### Known Bugs

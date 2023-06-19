@@ -7,41 +7,42 @@ function Pizza(toppings,size) {
 Pizza.prototype.getPizzaDetails = function() {
     return this.toppings.join(", ") + " " + this.size;
   }
-
-const myPizza = new Pizza (["cheese","pinapple", "olives", "jalapeno"], "large", "tomato");
-const pizzaDetails = myPizza.getPizzaDetails();
-
-console.log(pizzaDetails);
-
-function displayPizzaDetails(event){
-
-
-
-//Pizza sizes 
-
-
-
- // Prototype method to calculate the cost of the pizza
-
-//  Pizza.prototype.calculateCost = function() {
-//     // Define the cost based on the size 
-//     let sizeCost = {
-//       small: 8,
-//       medium: 10,
-//       large: 12
-//     };
-//  }
-
-// console.log(pizzaDetails);
-
-
-
-function getPrice(newPizza) {
-
-    let totalPrice = 0;
-
     //add logic for size prices
+function getSizePrice(newPizza) {
+    let sizePrice = 0;
 
+        if (newPizza.size === 'small') {
+            sizePrice = 8
+        } else if (newPizza.size === 'medium') {
+            sizePrice = 10
+        } else if (newPizza.size === 'large') {
+            sizePrice = 12
+        }
+    return sizePrice;
+}function getSizeSelected() {
+    let sizeSelected;
+    if (document.querySelector("input#small").checked) {
+        sizeSelected = 'small';
+    } else if (document.querySelector("input#medium").checked) {
+        sizeSelected = 'medium';
+    } else {
+        sizeSelected = 'large';
+    }
+    return sizeSelected;
+}
+function getToppingsSelected() {
+    let toppings = [];
+    let toppingOptions = [document.querySelector("input#cheese"), document.querySelector("input#jalapeno"), document.querySelector("input#pineapple"), document.querySelector("input#olives")]
+    for (options of toppingOptions) {
+        if (options.checked) {
+            toppings.push(options.id);    
+        }
+    }
+    return toppings;
+}
+function getPrice(newPizza) {
+    let totalPrice = 0;
+    totalPrice = getSizePrice(newPizza);
     for(topping of newPizza.toppings){
         if (topping === 'cheese') {
             totalPrice += 0.89;
@@ -49,27 +50,28 @@ function getPrice(newPizza) {
             totalPrice += 0.60
         } else if (topping === 'olives' ) {
             totalPrice += 0.40
-        } else if (topping === 'jalapeno'
-            }
+        } else if (topping === 'jalapeno') {
+            totalPrice += 0.45
+        }
 
         }
-    }
-
-return totalPrice;
+    return totalPrice;
 
 }
+
 
 //UI Logic 
 function handleFormSubmission(event) {
-    event.preventDefault();
+event.preventDefault();
+const inputtedSize = getSizeSelected();
+const inputtedToppings = getToppingsSelected();
+let newPizza = new Pizza(inputtedToppings,inputtedSize);
+const totalPrice = Math.round(getPrice(newPizza) * 100) / 100;
 
-    const inputtedSize = document.querySelector("input#new-size").value;
-    const inputtedToppings = [ document.querySelector("input#cheese").value, ]
-
-
-    let newPizza = new Pizza(inputtedSize, inputtedToppings);
-  
-    const totalPrice = getPrice(newPizza);
-    //set total price to html tAG
+document.getElementById("result").innerText = totalPrice;
 }
-}
+
+window.addEventListener("load", function (){
+  document.querySelector("form#pizzaForm").addEventListener("submit", handleFormSubmission);
+});
+
