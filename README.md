@@ -1,6 +1,6 @@
 
 
-# Week 4 Project - AObject-Oriented JavaScript!
+# Week 4 Project - Object-Oriented JavaScript!
 By Shankaron Mohamed
 
 
@@ -10,9 +10,9 @@ By Shankaron Mohamed
 -Javascript
 
 ## Description
-
+This is a project that allows users to select from a variety of pizza toppings and sizes. After selecting the size and toppings, it returns a price. 
 ### Setup/Installation Requirements
-- open ... in your browser!
+- open https://github.com/ShanaySharif/Object-Oriented-project in your browser!
 - Go to repository
 - Download zipfolder
 - open up Visual Studio Code
@@ -23,24 +23,19 @@ in Visual Studio Code on the bottom right hand side, run the application and it 
  Describe Pizza()
 
 Test: "It should return a Pizza object with three properties for toppings "
-code: const myPizza = new Pizza (["pineapple", "olives", "jalapeno"], "large");
-code
+code: let toppings = [];
 Expected Output: 'pineapple olives jalapeno'
 
-Test: "it should return the pizza price
+Test: "it should return the pizza price'
 code: const myPizza = new Pizza (["pineapple", "olives", "jalapeno"], "large");
 code: getPrice(myPizza);
-Expected Output: "cheese, pineapple, olives, jalapeno large with tomato sauce"
-
-Test:
-code:
-Expected Output:
-
+Expected Output: "13.45"
 
 
 
 
 ### Known Bugs
+- No known bugs.
 
 ### License
 MIT
